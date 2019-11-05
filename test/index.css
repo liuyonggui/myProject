@@ -1,0 +1,10 @@
+
+.tabsbox{border:1px solid red;}
+.firstnav ul{padding-left:0px;margin-bottom:0px;border-bottom:}
+ul li{list-style: none;float:left;padding:20px 30px; border-right:1px solid #ccc;border-bottom:1px solid #ccc;position: relative;cursor: pointer;}
+ul li .glyphicon{position: absolute;top:0;right:0;}
+.liactive{border-bottom:none;}
+.conactive{display:block;}
+.addtab{float:right;margin:20px 10px 0 0;}
+.addtab span{padding:5px 8px;border:1px solid #ccc;cursor: pointer;}
+section{display:none;width:100px;height:100px;}

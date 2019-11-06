@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型构造函数</title>
+</head>
+<body>
+<script>
+
+    //定义一个构造函数
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+    }
+    Person.prototype={
+        constructor:Person,
+        sing:function(){
+            console,log(44);
+        },
+        say:function () {
+            console.log(44);
+        }
+    }
+    var man=new Person("as",20);
+    console.log(Person.prototype.constructor);
+    console.log(man.__proto__.constructor);
+</script>
+</body>
+</html>

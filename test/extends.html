@@ -9,7 +9,8 @@
 <body>
 <div class="container">
     <div>
-        价格查询：<input type="text" value=""/>--<input type="text" value=""/><button class="btn">查询</button> 按商品名称查询：<input type="text" value=""/><button class="btn">查询</button>
+        价格查询：<input type="text" value="" class="price_star"/>--<input type="text" value="" class="price_end"><button class="btn price_search" >查询</button>
+        按商品名称查询：<input type="text" value="" class="brand"/> <button class="btn brand_search">查询</button>
     </div>
     <table class="table table-bordered">
         <thead>
@@ -42,15 +43,47 @@
            id:3,
            brand:"华为",
            price:3999
+       },
+       {
+           id:4,
+           brand:"vivo",
+           price:2999
        }
    ];
    var tbody=document.querySelector("tbody");
-   data.forEach(function(value,index,data){
-       var tr=document.createElement("tr");
-       tr.innerHTML='<td>'+value.id+'</td><td>'+value.brand+'</td><td>'+value.price+'</td>';
-       tbody.appendChild(tr);
-   })
+   function setData(mydata){
+       tbody.innerHTML="";
+       mydata.forEach(function(value,index,data){
+           var tr=document.createElement("tr");
+           tr.innerHTML='<td>'+value.id+'</td><td>'+value.brand+'</td><td>'+value.price+'</td>';
+           tbody.appendChild(tr);
+       });
+   }
+   setData(data);
 
+  var star=document.querySelector(".price_star");
+  var end=document.querySelector(".price_end");
+  var price_search=document.querySelector(".price_search");
+  price_search.addEventListener("click",function(){
+      var result=data.filter(function(value){
+           return value.price>=star.value && value.price<=end.value;
+      })
+      setData(result);
+  })
+
+   var brand=document.querySelector(".brand");
+   var brand_search=document.querySelector(".brand_search");
+
+   brand_search.addEventListener("click",function(){
+       var arr=[]
+       var result=data.some(function(value){
+          if(value.brand===brand.value){
+              arr.push(value);
+              return true;
+          }
+       })
+       setData(arr);
+   })
 </script>
 </body>
 </html>
